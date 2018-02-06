@@ -1,0 +1,64 @@
+Architecture of this platform
+accounts service
+inventory service
+checkout service
+api resources (sdk)
+knolkart dashboard
+Responsibilities of aforementioned microservices
+to keep history of all registered users
+to keep a log of all items available for purchase
+to place orders
+a common repository for communicating with all micro services
+a dashboard which an end user can use
+
+Each stories need to fulfill the following definition of done.
+Self code review
+95% unit test coverage
+0 scalastyle
+All features must be in runable condition
+
+1. As an architect, I want knolkart to be setup as a multi module project using sbt
+accounts, inventory, checkout, notification, api resources and dashboard should be setup as modules
+inter dependencies of all modules must be properly setup in build settings
+
+2. As an architect, I want accounts service to register/authenticate users
+accounts service has information of all registered users (master data), user mobile number is used as a primary identifier
+account service should have provision to add new users to master data
+this service can authenticate users based on username and password
+once authenticated each user will have an access token
+access token is required for making calls to checkout service
+
+3. As an end user, I should be able to search items available in the inventory
+inventory service has information of all available items (master data)
+items should contain information like description, photos, vendor information, rating, price etc.
+items can be searched on the basis of their category
+items can be sorted on filters price: high to low or low to high, rating: high to low or low to high, defaults to rating: high to low
+items should be paginated with 10 items per page by default, this value can be changed by the user
+all communication should be asynchronous
+inventory should use functional objects
+
+4. As an end user, I should be able to add/remove items to my cart in checkout serivce
+items can be added or removed from the cart
+each user has their own cart
+only authenticated users can added items to their cart
+accept credentials implicitly
+all communication should be asynchronous
+
+5. As an end user, I should be able to place order of all items in my cart
+on successful order cart is emptied
+on successful order items are updated in inventory
+only authenticated users can place orders
+accept credentials implicitly
+all communication should be asynchronous
+
+6. As an architect, I want user dashboard experience to be simulated from knolkart dashboard as an api
+a user can use dashboard for registering (using accounts service)
+a user can use dashboard for viewing all sorted items based on search criteria (using inventory service)
+a user can use dashboard to add or remove items to his/her cart (using checkout service)
+a user can use dashboard for placing orders (using checkout service)
+all communication should be asynchronous
+use for comprehension for collating response from different services
+
+7. As an architect, I want all communication to service to happen via api resources
+api resources knows how to communicate with all knolkart services
+api resources should be available to knolkart dashboard
