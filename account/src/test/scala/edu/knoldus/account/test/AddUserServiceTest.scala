@@ -23,15 +23,15 @@ class AddUserServiceTest extends FunSuite{
   val addUserServiceObj = AddUserService(userMap)
 
   test("It should return false on adding a user with same email"){
-    assert(addUserServiceObj.addUser(user1withModification) == false)
+    assert(!addUserServiceObj.addUser(user1withModification))
   }
   test("It should also return false on adding the user with same number"){
-    assert(addUserServiceObj.addUser(user1withModificationNumber) == false)
+    assert(!addUserServiceObj.addUser(user1withModificationNumber))
   }
   test("should return true on adding a normal user"){
     assert(addUserServiceObj.addUser(user5))
   }
 
-  test("it should return fale")
+//  test("it should return fale")
 
 }

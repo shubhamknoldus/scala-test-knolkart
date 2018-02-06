@@ -17,9 +17,10 @@ lazy val commonSettings = Seq(
 )
 
 lazy val account = (project in file("account")).settings(commonSettings).dependsOn(model)
-lazy val apiResources = (project in file("apiresources")).settings(commonSettings)
+lazy val apiResources = (project in file("apiresources")).settings(commonSettings).dependsOn(account, inventory, notification,
+  checkout)
 lazy val checkout = (project in file("checkout")).settings(commonSettings)
-lazy val dashboard = (project in file("dashboard")).settings(commonSettings).dependsOn(model)
+lazy val dashboard = (project in file("dashboard")).settings(commonSettings).dependsOn(apiResources)
 lazy val notification = (project in file("notification")).settings(commonSettings)
 lazy val inventory = (project in file("inventory")).settings(commonSettings).dependsOn(model)
 lazy val model = project in file("model")

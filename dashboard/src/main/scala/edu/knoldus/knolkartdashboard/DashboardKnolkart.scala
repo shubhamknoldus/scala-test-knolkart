@@ -1,4 +1,5 @@
 package edu.knoldus.knolkartdashboard
+
 import edu.master.MasterDataEntities
 
 case class DashboardKnolkart extends DashBoard {
