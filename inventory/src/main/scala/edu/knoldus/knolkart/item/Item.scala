@@ -9,4 +9,4 @@ case class Item(
                  vendor: String,
                  category: String,
                  count: Int,
-                 rating: Int) extends MasterDataEntities
+                 rating: Double) extends MasterDataEntities

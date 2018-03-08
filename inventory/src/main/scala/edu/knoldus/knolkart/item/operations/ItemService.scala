@@ -8,7 +8,7 @@ import scala.io.StdIn._
 case class ItemService(itemMap: Map[Int, Item]) {
 
 
-  def addItem: Boolean = {
+ /* def addItem: Boolean = {
     @tailrec
     def addItemHelper(itemList: Map[Int, Item]): Map[Int, Item] = {
       //logger.info("\nenter the id for the object to add\n")
@@ -81,5 +81,5 @@ case class ItemService(itemMap: Map[Int, Item]) {
     val filterObj = FilterElements(itemMap)
 //    ApplicationObject.runApplication(filterObj.filterElements, true)
   }
-
+*/
 }

@@ -13,8 +13,8 @@ case class AddUserService(userMap: Map[Int, User]) extends AccountService {
   }
 
   override def authenticateUser(email: String, password: String): Boolean = {
-    val x = userMap.values.toList
-    x.exists(x => x.email == email && x.password == password)
+    val userList = userMap.values.toList
+    userList.exists(user => user.email == email && user.password == password)
   }
 
   private def isUserUnique(userToCheck: User): Boolean = {
